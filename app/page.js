@@ -794,7 +794,7 @@ export default function WebRacksIndustriales() {
               <Phone className="h-5 w-5 text-red-400" /> 1131250453
             </p>
             <p className="flex items-center gap-3">
-              <Mail className="h-5 w-5 text-red-400" /> {krakenargentina1@gmail.com}
+              <Mail className="h-5 w-5 text-red-400" /> {EMAIL}
             </p>
             <p className="flex items-center gap-3">
               <MapPin className="h-5 w-5 text-red-400" /> {UBICACION}
