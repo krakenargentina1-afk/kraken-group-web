@@ -65,7 +65,7 @@ const COMPANY_NAME = "KRAKEN GROUP";
 const COMPANY_LEGAL_NAME = "Kraken Group";
 const LOGO_SRC = "/imagenes/logo-kraken-group.png";
 const WHATSAPP = "5491131250453"; // Cambiar por el WhatsApp comercial definitivo.
-const EMAIL = "ventas@krakengroup.com.ar"; // Cambiar por el mail comercial definitivo.
+const EMAIL = "krakenargentina1@gmail.com"; // Cambiar por el mail comercial definitivo.
 const UBICACION = "Buenos Aires · Argentina";
 
 const navItems = [
@@ -791,10 +791,10 @@ export default function WebRacksIndustriales() {
 
           <div className="mt-8 space-y-4 text-neutral-300">
             <p className="flex items-center gap-3">
-              <Phone className="h-5 w-5 text-red-400" /> WhatsApp comercial
+              <Phone className="h-5 w-5 text-red-400" /> 1131250453
             </p>
             <p className="flex items-center gap-3">
-              <Mail className="h-5 w-5 text-red-400" /> {EMAIL}
+              <Mail className="h-5 w-5 text-red-400" /> {krakenargentina1@gmail.com}
             </p>
             <p className="flex items-center gap-3">
               <MapPin className="h-5 w-5 text-red-400" /> {UBICACION}
