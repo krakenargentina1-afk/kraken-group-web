@@ -49,12 +49,6 @@ function IndustrialImage({ src, alt, className = "", priority = false }) {
   );
 }
 
-const advantages = [
-  { icon: ShieldCheck, title: "Construccion robusta", text: "Componentes metalicos para uso diario, golpes operativos, carga repetida y ambientes industriales reales." },
-  { icon: Ruler, title: "Ingenieria a medida", text: "Medidas, apoyos, carriles y separaciones definidos segun producto, peso, flujo y rotacion." },
-  { icon: Layers3, title: "Integracion modular", text: "Accesorios para racks nuevos o instalados, con crecimiento por sector, nivel o referencia." },
-  { icon: Gauge, title: "Respuesta B2B", text: "Cotizaciones claras para compras, mantenimiento, operaciones, logistica e ingenieria industrial." },
-];
 
 const applications = [
   { icon: Warehouse, title: "Depositos y centros logisticos", text: "Frentes de picking mas ordenados, menor recorrido y reposicion por referencia." },
@@ -154,16 +148,6 @@ export default function HomeClient() {
 
       <section className="border-b border-white/10 bg-black/45">
         <div className="mx-auto grid max-w-7xl gap-4 px-5 py-8 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
-          {advantages.map((item) => {
-            const Icon = item.icon;
-            return (
-              <article key={item.title} className="rounded-2xl border border-white/10 bg-white/[0.035] p-6 shadow-xl shadow-black/25">
-                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl border border-red-500/30 bg-red-950/35 text-red-300"><Icon className="h-5 w-5" /></div>
-                <h2 className="text-lg font-black">{item.title}</h2>
-                <p className="mt-2 text-sm leading-6 text-neutral-400">{item.text}</p>
-              </article>
-            );
-          })}
         </div>
       </section>
 
