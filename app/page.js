@@ -789,17 +789,27 @@ export default function WebRacksIndustriales() {
             Podés mandar medidas, fotos del depósito, tipo de carga o una cotización previa para que la revisemos.
           </p>
 
-          <div className="mt-8 space-y-4 text-neutral-300">
-            <p className="flex items-center gap-3">
-              <Phone className="h-5 w-5 text-red-400" /> 1131250453
-            </p>
-            <p className="flex items-center gap-3">
-              <Mail className="h-5 w-5 text-red-400" /> {EMAIL}
-            </p>
-            <p className="flex items-center gap-3">
-              <MapPin className="h-5 w-5 text-red-400" /> {UBICACION}
-            </p>
-          </div>
+ <div className="mt-8 space-y-4 text-neutral-300">
+  {/* Teléfono */}
+  <p className="flex items-center gap-3">
+    <Phone className="h-5 w-5 text-red-400" /> 
+    <a href="tel:1131250453" className="hover:underline">1131250453</a>
+  </p>
+
+  {/* Email */}
+  <p className="flex items-center gap-3">
+    <Mail className="h-5 w-5 text-red-400" /> 
+    <a href="mailto:krakenargentina1@gmail.com" className="hover:underline">
+      krakenargentina1@gmail.com
+    </a>
+  </p>
+
+  {/* Ubicación */}
+  <p className="flex items-center gap-3">
+    <MapPin className="h-5 w-5 text-red-400" /> 
+    <span>Buenos Aires, Argentina</span> {/* O la dirección real que quieras poner */}
+  </p>
+</div>
 
           <div className="mt-8 rounded-[2rem] border border-red-500/25 bg-red-950/20 p-6">
             <p className="text-lg font-black">Revisión de cotizaciones</p>
