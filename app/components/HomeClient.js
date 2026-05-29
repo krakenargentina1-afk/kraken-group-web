@@ -21,7 +21,7 @@ import {
   Truck,
   Warehouse,
 } from "lucide-react";
-import { company, galleryImages, products, whatsappNumber } from "../productos/data";
+import { company, galleryImages, productos, whatsappNumber } from "../data/productos";
 
 function Button({ children, variant = "primary", className = "", ...props }) {
   const styles =
@@ -179,7 +179,7 @@ export default function HomeClient() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {products.map((product, index) => (
+          {productos.map((product, index) => (
             <motion.article
               key={product.slug}
               initial={{ opacity: 0, y: 18 }}
@@ -189,17 +189,17 @@ export default function HomeClient() {
               className="group overflow-hidden rounded-3xl border border-white/10 bg-[linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025))] shadow-2xl shadow-black/30"
             >
               <Link href={`/productos/${product.slug}`} className="block">
-                <IndustrialImage src={product.image} alt={product.name} className="h-56" />
+                <IndustrialImage src={product.imagen} alt={product.nombre} className="h-56" />
                 <div className="p-6">
                   <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-xl font-black">{product.name}</h3>
+                    <h3 className="text-xl font-black">{product.nombre}</h3>
                     <ArrowRight className="mt-1 h-5 w-5 shrink-0 text-red-400 transition group-hover:translate-x-1" />
                   </div>
-                  <p className="mt-3 min-h-[72px] text-sm leading-6 text-neutral-400">{product.summary}</p>
+                  <p className="mt-3 min-h-[72px] text-sm leading-6 text-neutral-400">{product.resumen}</p>
                   <div className="mt-5 flex items-end justify-between gap-4 border-t border-white/10 pt-5">
                     <div>
-                      <p className="text-2xl font-black text-white">{product.price}</p>
-                      <p className="text-xs font-bold uppercase tracking-[0.16em] text-red-300">{product.volume}</p>
+                      <p className="text-2xl font-black text-white">{product.precio}</p>
+                      <p className="text-xs font-bold uppercase tracking-[0.16em] text-red-300">{product.volumen}</p>
                     </div>
                     <span className="rounded-full border border-red-400/30 bg-red-950/35 px-3 py-1 text-xs font-black text-red-100">Ver ficha</span>
                   </div>
@@ -298,8 +298,8 @@ export default function HomeClient() {
             <p className="mt-1">Accesorios, componentes y soluciones logisticas para racks industriales.</p>
           </div>
           <div className="flex flex-wrap gap-4">
-            {products.slice(0, 4).map((product) => (
-              <Link key={product.slug} href={`/productos/${product.slug}`} className="hover:text-white">{product.shortName}</Link>
+            {productos.slice(0, 4).map((product) => (
+              <Link key={product.slug} href={`/productos/${product.slug}`} className="hover:text-white">{product.nombreCorto}</Link>
             ))}
           </div>
         </div>

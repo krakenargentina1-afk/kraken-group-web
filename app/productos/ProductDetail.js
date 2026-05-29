@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, BadgeCheck, MessageCircle, Ruler, ShieldCheck, Wrench } from "lucide-react";
-import { company, productWhatsappUrl, products } from "./data";
+import { company, productoWhatsappUrl, productos } from "../data/productos";
 
 function SectionList({ title, items }) {
   return (
@@ -20,7 +20,7 @@ function SectionList({ title, items }) {
 }
 
 export default function ProductDetail({ product }) {
-  const related = products.filter((item) => item.slug !== product.slug).slice(0, 3);
+  const related = productos.filter((item) => item.slug !== product.slug).slice(0, 3);
 
   return (
     <main className="min-h-screen overflow-hidden bg-[#050607] text-white">
@@ -47,22 +47,22 @@ export default function ProductDetail({ product }) {
 
       <section className="relative border-b border-white/10">
         <div className="absolute inset-0 -z-10">
-          <Image src={product.image} alt={product.name} fill priority sizes="100vw" className="object-cover opacity-28" />
+          <Image src={product.imagen} alt={product.nombre} fill priority sizes="100vw" className="object-cover opacity-28" />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,#050607_0%,rgba(5,6,7,.92)_42%,rgba(5,6,7,.56)_100%)]" />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,6,7,.06),#050607_98%)]" />
         </div>
 
         <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 lg:grid-cols-[.94fr_1.06fr] lg:px-8 lg:py-20">
           <div className="self-center">
-            <p className="text-sm font-bold uppercase tracking-[0.28em] text-red-400">Ficha tecnica</p>
-            <h1 className="mt-4 text-4xl font-black leading-tight md:text-6xl">{product.name}</h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-300">{product.description}</p>
+            <p className="text-sm font-bold uppercase tracking-[0.28em] text-red-400">{product.categoria}</p>
+            <h1 className="mt-4 text-4xl font-black leading-tight md:text-6xl">{product.nombre}</h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-300">{product.descripcion}</p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href={productWhatsappUrl(product)} target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-red-700 px-6 py-3 text-sm font-black text-white shadow-lg shadow-red-950/40 transition hover:bg-red-600">
+              <a href={productoWhatsappUrl(product)} target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-red-700 px-6 py-3 text-sm font-black text-white shadow-lg shadow-red-950/40 transition hover:bg-red-600">
                 <MessageCircle className="h-5 w-5" />
                 WhatsApp
               </a>
-              <a href={`mailto:${company.email}?subject=Cotizacion ${encodeURIComponent(product.name)}`} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.04] px-6 py-3 text-sm font-black text-white transition hover:border-red-400/50 hover:bg-white/[0.08]">
+              <a href={`mailto:${company.email}?subject=Cotizacion ${encodeURIComponent(product.nombre)}`} className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.04] px-6 py-3 text-sm font-black text-white transition hover:border-red-400/50 hover:bg-white/[0.08]">
                 Cotizar
               </a>
             </div>
@@ -70,15 +70,15 @@ export default function ProductDetail({ product }) {
 
           <div className="group overflow-hidden rounded-3xl border border-white/10 bg-black/60 shadow-2xl shadow-black/50">
             <div className="relative h-[340px] sm:h-[470px]">
-              <Image src={product.image} alt={product.name} fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition duration-700 group-hover:scale-105" />
+              <Image src={product.imagen} alt={product.nombre} fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition duration-700 group-hover:scale-105" />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.65))]" />
             </div>
             <div className="flex flex-col gap-4 border-t border-white/10 p-6 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="text-sm font-bold uppercase tracking-[0.2em] text-red-300">Precio desde</p>
-                <p className="mt-1 text-4xl font-black">{product.price}</p>
+                <p className="mt-1 text-4xl font-black">{product.precio}</p>
               </div>
-              <p className="rounded-full border border-red-400/30 bg-red-950/35 px-4 py-2 text-sm font-black text-red-100">{product.volume}</p>
+              <p className="rounded-full border border-red-400/30 bg-red-950/35 px-4 py-2 text-sm font-black text-red-100">{product.volumen}</p>
             </div>
           </div>
         </div>
@@ -105,10 +105,10 @@ export default function ProductDetail({ product }) {
       </section>
 
       <section className="mx-auto grid max-w-7xl gap-5 px-5 pb-16 lg:grid-cols-2 lg:px-8">
-        <SectionList title="Especificaciones tecnicas" items={product.specs} />
-        <SectionList title="Capacidades operativas" items={product.capacities} />
-        <SectionList title="Materiales" items={product.materials} />
-        <SectionList title="Aplicaciones" items={product.applications} />
+        <SectionList title="Especificaciones tecnicas" items={product.especificaciones} />
+        <SectionList title="Capacidades operativas" items={product.capacidades} />
+        <SectionList title="Materiales" items={product.materiales} />
+        <SectionList title="Aplicaciones" items={product.aplicaciones} />
       </section>
 
       <section className="border-y border-white/10 bg-[#0b0c0d]">
@@ -118,14 +118,14 @@ export default function ProductDetail({ product }) {
               <p className="text-sm font-bold uppercase tracking-[0.28em] text-red-400">Galeria</p>
               <h2 className="mt-3 text-3xl font-black md:text-5xl">Terminacion y aplicacion industrial.</h2>
             </div>
-            <a href={productWhatsappUrl(product)} target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-red-700 px-6 py-3 text-sm font-black text-white shadow-lg shadow-red-950/40 transition hover:bg-red-600">
+            <a href={productoWhatsappUrl(product)} target="_blank" rel="noreferrer" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-red-700 px-6 py-3 text-sm font-black text-white shadow-lg shadow-red-950/40 transition hover:bg-red-600">
               Pedir cotizacion <ArrowRight className="h-5 w-5" />
             </a>
           </div>
           <div className="grid gap-5 md:grid-cols-3">
-            {product.gallery.map((image, index) => (
+            {product.galeria.map((image, index) => (
               <div key={image} className="relative h-72 overflow-hidden rounded-3xl border border-white/10 bg-black shadow-xl shadow-black/30">
-                <Image src={image} alt={`${product.name} galeria ${index + 1}`} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
+                <Image src={image} alt={`${product.nombre} galeria ${index + 1}`} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />
                 <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
               </div>
             ))}
@@ -144,12 +144,12 @@ export default function ProductDetail({ product }) {
           {related.map((item) => (
             <Link key={item.slug} href={`/productos/${item.slug}`} className="group overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] shadow-xl shadow-black/25">
               <div className="relative h-52">
-                <Image src={item.image} alt={item.name} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition duration-700 group-hover:scale-105" />
+                <Image src={item.imagen} alt={item.nombre} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.72))]" />
               </div>
               <div className="p-5">
-                <h3 className="text-lg font-black">{item.name}</h3>
-                <p className="mt-2 text-sm text-neutral-400">{item.price} - {item.volume}</p>
+                <h3 className="text-lg font-black">{item.nombre}</h3>
+                <p className="mt-2 text-sm text-neutral-400">{item.precio} - {item.volumen}</p>
               </div>
             </Link>
           ))}
